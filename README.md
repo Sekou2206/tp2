@@ -1,59 +1,14 @@
-# MonProjet
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
-
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Ajouter une tâche : un titre (obligatoire), une description et une date d'échéance (facultatives).
+Validation du titre : le bouton « Ajouter » n'est actif que si le titre contient au moins 3 caractères, espaces non comptés.
+Validation de la date : une échéance ne peut pas être dans le passé. Le calendrier bloque les jours passés et le code vérifie aussi la date saisie à la main.
+Lister les tâches : les tâches à faire et les tâches faites sont affichées dans deux sections séparées, avec un compteur « X à faire / Y faites ».
+Cocher / décocher : une tâche cochée passe dans la section « Tâches faites », et revient dans « À faire » si on la décoche.
+Modifier une tâche : le titre, la description et l'échéance peuvent être changés, avec des messages d'erreur visibles.
+Supprimer une tâche.
+Persistance : les tâches sont enregistrées dans le localStorage du navigateur et retrouvées après un rechargement.
+Page de statistiques (/stats) : total, tâches faites, tâches à faire et pourcentage de tâches terminées (0 % si la liste est vide).
+Technologies
+Angular 22 (composants standalone, nouvelle syntaxe @if et @for)
+TypeScript, HTML, CSS
+Angular Router pour la navigation entre les pages
+localStorage pour la sauvegarde des données
