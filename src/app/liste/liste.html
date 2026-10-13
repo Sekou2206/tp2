@@ -1,0 +1,53 @@
+<h2>Formulaire</h2>
+<input type="text" placeholder="Titre" [(ngModel)]="titre" />
+<input type="text" placeholder="Description" [(ngModel)]="description" />
+<input type="date" [min]="aujourdhui" [(ngModel)]="date" />
+
+@if (tacheEnCours == null) {
+  <button (click)="ajouter()" [disabled]="!titreValide()">Ajouter</button>
+}
+@if (tacheEnCours != null) {
+  <button (click)="enregistrer()">Enregistrer</button>
+  <button (click)="vider()">Annuler</button>
+}
+
+<p class="erreur">{{ erreur }}</p>
+
+<h2>Mes tâches</h2>
+<p>{{ taches.length - nbFaites() }} à faire / {{ nbFaites() }} faites</p>
+
+<h3>À faire</h3>
+<ul>
+  @for (t of taches; track $index) {
+    @if (!t.faite) {
+      <li>
+        <input type="checkbox" [checked]="t.faite" (change)="cocher(t)" />
+        {{ t.titre }} - À faire
+        @if (t.date) {
+          - échéance : {{ t.date }}
+        }
+        <p>{{ t.description }}</p>
+        <button (click)="modifier(t)">Modifier</button>
+        <button (click)="supprimer(t)">Supprimer</button>
+      </li>
+    }
+  }
+</ul>
+
+<h3>Tâches faites</h3>
+<ul>
+  @for (t of taches; track $index) {
+    @if (t.faite) {
+      <li>
+        <input type="checkbox" [checked]="t.faite" (change)="cocher(t)" />
+        {{ t.titre }} - Fait
+        @if (t.date) {
+          - échéance : {{ t.date }}
+        }
+        <p>{{ t.description }}</p>
+        <button (click)="modifier(t)">Modifier</button>
+        <button (click)="supprimer(t)">Supprimer</button>
+      </li>
+    }
+  }
+</ul>
